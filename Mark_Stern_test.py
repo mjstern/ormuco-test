@@ -20,34 +20,48 @@ select the top 5 results and for each result scrape for the most relevant inform
 The response should contain the links to the websites that were scraped with the most relevant information (could be a text insight ,  a code snippet, a patch file, etc.) for each.
 In the response, feel free to add any other extra information that you think could be relevant.
 """
-from overlap import is_overlapped
 
-#Test input for Question A:
-input_A = [
-    ([1,2],[3,4]),
-    ([1,2],[4,3]),
-    ([1,3],[2,4]),
-    ([1,4],[3,2]),
-    ([2.5,1.5],[3.5,4.5]),
-    ([3.5,2.5],[1.5,4.5])
-]
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#QUESTION A
 
-#Expected output for Question A:
-expected_A = [
-    False,
-    False,
-    True,
-    True,
-    False,
-    True
-]
+# from overlap import is_overlapped
 
-#Test question A
-print("Testing is_overlapped() function:")
-for inp, exp in zip(input_A,expected_A):
-    if exp == is_overlapped(*inp):
-        test_string = "pass"
-    else:
-        test_string = "fail"
-    print("Test input: ", *inp,", expected output: ",exp ,"... ", test_string)
+# #Test input for Question A:
+# input_A = [
+#     ([1,2],[3,4]),
+#     ([1,2],[4,3]),
+#     ([1,3],[2,4]),
+#     ([1,4],[3,2]),
+#     ([2.5,1.5],[3.5,4.5]),
+#     ([3.5,2.5],[1.5,4.5])
+# ]
+
+# #Expected output for Question A:
+# expected_A = [
+#     False,
+#     False,
+#     True,
+#     True,
+#     False,
+#     True
+# ]
+
+# #Test question A
+# print("Testing is_overlapped() function:")
+# for inp, exp in zip(input_A,expected_A):
+#     if exp == is_overlapped(*inp):
+#         test_string = "pass"
+#     else:
+#         test_string = "fail"
+#     print("Test input: ", *inp,", expected output: ",exp ,"... ", test_string)
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#QUESTION B
+
+from version import version_compare
+
+
+version_compare("1.0","2.0.0")
+
+
 
