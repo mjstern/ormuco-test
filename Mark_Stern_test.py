@@ -47,7 +47,7 @@ In the response, feel free to add any other extra information that you think cou
 # ]
 
 # #Test question A
-# print("Testing is_overlapped() function:")
+# print("Testing is_overlapped function:")
 # for inp, exp in zip(input_A,expected_A):
 #     if exp == is_overlapped(*inp):
 #         test_string = "pass"
@@ -60,8 +60,30 @@ In the response, feel free to add any other extra information that you think cou
 
 from version import version_compare
 
+#Test input for Question B:
+input_B = [
+    ("1.0","1.1"),
+    ("2.0.1","2.0"),
+    ("0.0.3","0.0.3.0"),
+    ("1.1a","1.1b"),
+    ("2.1c","2.1")
+]
 
-version_compare("1.0","2.0.0")
+#Expected output for Question B:
+expected_B = [
+    -1,
+    1,
+    0,
+    -1,
+    1
+]
 
-
-
+#Test question B
+print("Testing version_compare function:")
+for inp, exp in zip(input_B,expected_B):
+    out = version_compare(*inp)
+    if exp == out:
+        test_string = "pass"
+    else:
+        test_string = "fail"
+    print("Test input: ", *inp,", expected output: ",exp , "actual output: ",out,"... ", test_string)
