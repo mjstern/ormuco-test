@@ -24,69 +24,79 @@ In the response, feel free to add any other extra information that you think cou
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #QUESTION A
 
-# from overlap import is_overlapped
+from overlap import is_overlapped
 
-# #Test input for Question A:
-# input_A = [
-#     ([1,2],[3,4]),
-#     ([1,2],[4,3]),
-#     ([1,3],[2,4]),
-#     ([1,4],[3,2]),
-#     ([2.5,1.5],[3.5,4.5]),
-#     ([3.5,2.5],[1.5,4.5])
-# ]
+#Test input for Question A:
+input_A = [
+    ([1,2],[3,4]),
+    ([1,2],[4,3]),
+    ([1,3],[2,4]),
+    ([1,4],[3,2]),
+    ([2.5,1.5],[3.5,4.5]),
+    ([3.5,2.5],[1.5,4.5])
+]
 
-# #Expected output for Question A:
-# expected_A = [
-#     False,
-#     False,
-#     True,
-#     True,
-#     False,
-#     True
-# ]
+#Expected output for Question A:
+expected_A = [
+    False,
+    False,
+    True,
+    True,
+    False,
+    True
+]
 
-# #Test question A
-# print("Testing is_overlapped function:")
-# for inp, exp in zip(input_A,expected_A):
-#     if exp == is_overlapped(*inp):
-#         test_string = "pass"
-#     else:
-#         test_string = "fail"
-#     print("Test input: ", *inp,", expected output: ",exp ,"... ", test_string)
+#Test question A
+print("Testing is_overlapped function:")
+for inp, exp in zip(input_A,expected_A):
+    if exp == is_overlapped(*inp):
+        test_string = "pass"
+    else:
+        test_string = "fail"
+    print("Test input: ", *inp,", expected output: ",exp ,"... ", test_string)
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #QUESTION B
 
-# from version import version_compare
+from version import version_compare
 
-# #Test input for Question B:
-# input_B = [
-#     ("1.0","1.1"),
-#     ("2.0.1","2.0"),
-#     ("0.0.3","0.0.3.0"),
-#     ("1.1a","1.1b"),
-#     ("2.1c","2.1")
-# ]
+#Test input for Question B:
+input_B = [
+    ("1.0","1.1"),
+    ("2.0.1","2.0"),
+    ("0.0.3","0.0.3.0"),
+    ("1.1a","1.1b"),
+    ("2.1c","2.1")
+]
 
-# #Expected output for Question B:
-# expected_B = [
-#     -1,
-#     1,
-#     0,
-#     -1,
-#     1
-# ]
+#Expected output for Question B:
+expected_B = [
+    -1,
+    1,
+    0,
+    -1,
+    1
+]
 
-# #Test question B
-# print("Testing version_compare function:")
-# for inp, exp in zip(input_B,expected_B):
-#     out = version_compare(*inp)
-#     if exp == out:
-#         test_string = "pass"
-#     else:
-#         test_string = "fail"
-#     print("Test input: ", *inp,", expected output: ",exp , "actual output: ",out,"... ", test_string)
+#Test question B
+print("Testing version_compare function:")
+for inp, exp in zip(input_B,expected_B):
+    out = version_compare(*inp)
+    if exp == out:
+        test_string = "pass"
+    else:
+        test_string = "fail"
+    print("Test input: ", *inp,", expected output: ",exp , "actual output: ",out,"... ", test_string)
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #QUESTION C
+
+from pandas import DataFrame
+from google_insights import google_scrape
+
+TEST_STRING = "keystone - Circular reference found role inference"
+
+results = google_scrape(TEST_STRING)
+results_df = DataFrame(results)
+results_df = results_df[["rank","title","link","description"]]
+print(results_df)
