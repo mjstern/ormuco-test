@@ -13,7 +13,7 @@ def add_zeros(list1,list2):
     length_diff = len(list2) - len(list1)
     if length_diff > 0:
         return list1 + ["0"]*length_diff, list2
-    if length_diff < 0:
+    elif length_diff < 0:
         return list1, list2 + ["0"]*(-length_diff)
     else:
         return list1, list2
