@@ -3,9 +3,7 @@ import re
 from string import punctuation
 from bs4 import BeautifulSoup
 
-TEST_STRING = "keystone - Circular reference found role inference"
-
-def prepare_string_for_url(search_string = TEST_STRING):
+def prepare_string_for_url(search_string):
     """ Prepare search string so that it works in a google search url"""
     # Make regular expression for removing punctuation.
     regex_punctuation = re.compile('[%s]' % re.escape(punctuation))
@@ -17,8 +15,8 @@ def prepare_string_for_url(search_string = TEST_STRING):
     return search_string
 
 def parse_search_results(html, keyword):
-    """ Parse search results using Beautiful Soup and return a dictionary of the title, link url, and description,
-     code based on http://edmundmartin.com/scraping-google-with-python/"""
+    """ Parse search results using Beautiful Soup and return a dictionary of the title, link url, and description.
+    Code based on http://edmundmartin.com/scraping-google-with-python/"""
     soup = BeautifulSoup(html,'html.parser')
     #initiallize variables
     found_results = []

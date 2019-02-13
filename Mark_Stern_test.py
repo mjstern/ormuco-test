@@ -49,11 +49,12 @@ expected_A = [
 #Test question A
 print("Testing is_overlapped function:")
 for inp, exp in zip(input_A,expected_A):
-    if exp == is_overlapped(*inp):
+    out = is_overlapped(*inp)
+    if exp == out:
         test_string = "pass"
     else:
         test_string = "fail"
-    print("Test input: ", *inp,", expected output: ",exp ,"... ", test_string)
+    print("Test input: ", *inp,", expected output: ",exp , ", actual output: ",out,"... ", test_string)
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #QUESTION B
@@ -86,7 +87,7 @@ for inp, exp in zip(input_B,expected_B):
         test_string = "pass"
     else:
         test_string = "fail"
-    print("Test input: ", *inp,", expected output: ",exp , "actual output: ",out,"... ", test_string)
+    print("Test input: ", *inp,", expected output: ",exp , ", actual output: ",out,"... ", test_string)
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #QUESTION C
